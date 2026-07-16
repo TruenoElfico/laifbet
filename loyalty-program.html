@@ -29,10 +29,13 @@
   .draft b{color:#fff}
 
   /* ===== NAV ===== */
-  nav{display:flex;justify-content:space-between;align-items:center;padding:18px 6vw;position:relative;z-index:5}
-  .logo{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:28px;letter-spacing:1px}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:18px 6vw;position:relative;z-index:5;gap:20px}
+  .logo{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:28px;letter-spacing:1px;text-decoration:none}
   .logo span{color:var(--verde-luz)}
-  .nav-cta{background:var(--verde-luz);color:var(--fondo);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:10px 26px;border-radius:8px;text-decoration:none;font-size:15px;transition:.2s}
+  .main-nav{display:flex;gap:26px;flex:1;justify-content:center}
+  .main-nav a{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:15px;color:#cfe6d8;text-decoration:none;padding:6px 0}
+  .main-nav a:hover,.main-nav a.active{color:var(--verde-luz)}
+  .nav-cta{background:var(--verde-luz);color:var(--fondo);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:10px 26px;border-radius:8px;text-decoration:none;font-size:15px;transition:.2s;white-space:nowrap}
   .nav-cta:hover{background:var(--oro);color:var(--negro)}
 
   /* ===== HERO ===== */
@@ -152,12 +155,13 @@
 
   /* ===== FOOTER ===== */
   footer{background:var(--negro);padding:34px 6vw;text-align:center}
-  footer .logo{font-size:30px;margin-bottom:10px}
+  footer .logo{font-size:30px;margin-bottom:10px;display:inline-block}
   footer .legal{font-size:12px;color:#7a8a80;max-width:720px;margin:0 auto;line-height:1.7}
   footer .legal b{color:#c9c9c9}
   .rs{margin-top:14px;font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:16px;color:var(--oro-brillo);letter-spacing:1px}
 
   @media(max-width:900px){
+    .main-nav{display:none}
     .pasos{grid-template-columns:repeat(2,1fr)}
     .escalera{grid-template-columns:repeat(4,1fr)}
     .nivel.h1,.nivel.h2,.nivel.h3,.nivel.h4,.nivel.h5,.nivel.h6{padding-top:24px}
@@ -176,7 +180,12 @@
 <div class="draft">⚠ <b>BORRADOR INTERNO</b> — pendiente: regla exacta de escalación (mínimos vs. rangos), número de licencia y validación legal del disclaimer. Quitar esta barra antes de publicar.</div>
 
 <nav>
-  <div class="logo">LAIF<span>BET</span></div>
+  <a href="index.html" class="logo">LAIF<span>BET</span></a>
+  <div class="main-nav">
+    <a href="index.html">Inicio</a>
+    <a href="loyalty-program.html" class="active">Programa de Lealtad</a>
+    <a href="mcddavo.html">MC Davo</a>
+  </div>
   <a class="nav-cta" href="#unete">Únete ahora</a>
 </nav>
 
@@ -307,7 +316,7 @@
 </section>
 
 <footer>
-  <div class="logo">LAIF<span>BET</span></div>
+  <a href="index.html" class="logo">LAIF<span>BET</span></a>
   <p class="legal">Programa de Lealtad LaifBet. Aplican Términos y Condiciones. Los porcentajes de cashback y requisitos de nivel están sujetos a las bases oficiales del programa publicadas en laifbet.mx. Operado bajo licencia MGA.</p>
   <div class="rs">+18 · JUEGA RESPONSABLE</div>
 </footer>
