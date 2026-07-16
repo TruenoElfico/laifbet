@@ -8,87 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --verde:#0F502B; --verde-osc:#0B371E; --negro:#000; --gris:#D9D9D9; --blanco:#fff;
-    --verde-luz:#2FAE66; --oro:#C9A24C; --oro-brillo:#ECD596;
-    --fondo:#06120C; --panel:#0C2015; --borde:#1B3A28;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:'Hanken Grotesk',sans-serif;background:var(--fondo);color:#fff;line-height:1.6;overflow-x:hidden;
-    background-image:
-      radial-gradient(ellipse at 50% -10%, rgba(201,162,76,.14), transparent 55%),
-      radial-gradient(circle at 8% 40%, rgba(47,174,102,.08), transparent 45%),
-      radial-gradient(circle at 95% 80%, rgba(15,80,43,.25), transparent 50%);}
-  a{color:inherit}
-  .gold{background:linear-gradient(180deg,var(--oro-brillo) 0%,var(--oro) 45%,#8a6b2a 75%,var(--oro-brillo) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 8px rgba(201,162,76,.35))}
-
-  /* ===== NAVBAR ===== */
-  .topbar{background:var(--verde-osc);border-bottom:1px solid var(--borde);position:sticky;top:0;z-index:100}
-  .topbar-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 6vw;gap:20px}
-  .burger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:44px;height:44px;background:var(--oro);border:none;border-radius:10px;cursor:pointer;flex-shrink:0}
-  .burger span{width:20px;height:2px;background:var(--negro);border-radius:2px}
-  .logo{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:26px;letter-spacing:1px;white-space:nowrap;text-decoration:none}
-  .logo span{color:var(--verde-luz)}
-  .main-nav{display:flex;gap:30px;flex:1;justify-content:center}
-  .main-nav a{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:15px;color:#cfe6d8;position:relative;text-decoration:none;padding:6px 0}
-  .main-nav a:hover{color:var(--verde-luz)}
-  .nav-cta{background:var(--verde-luz);color:var(--fondo);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:14px;transition:.2s;white-space:nowrap}
-  .nav-cta:hover{background:var(--oro);color:var(--negro)}
-  .mobile-nav{display:none;flex-direction:column;background:var(--verde-osc);border-top:1px solid var(--borde);padding:10px 6vw 20px}
-  .mobile-nav a{padding:14px 0;font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:15px;color:#cfe6d8;border-bottom:1px solid var(--borde);text-decoration:none}
-  .mobile-nav .nav-cta{display:inline-block;margin-top:14px;text-align:center}
-  .topbar.open .mobile-nav{display:flex}
-
-  /* ===== HERO ===== */
-  .hero{text-align:center;padding:64px 6vw 56px;position:relative;max-width:1000px;margin:0 auto}
-  .hero::before{content:"";position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:900px;height:500px;
-    background:radial-gradient(ellipse, rgba(201,162,76,.12) 0%, transparent 65%);pointer-events:none}
-  .hero .kicker{display:inline-block;border:1px solid var(--oro);color:var(--oro-brillo);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:13px;padding:7px 20px;border-radius:30px;margin-bottom:26px;background:rgba(201,162,76,.07)}
-  .hero h1{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(36px,6vw,64px);line-height:1;letter-spacing:1px}
-  .hero .sub{max-width:620px;margin:22px auto 0;font-size:18px;color:#bfe0cc}
-  .hero .sub b{color:#fff}
-
-  /* ===== HUB SECTIONS ===== */
-  .hub{padding:20px 6vw 90px;max-width:1300px;margin:0 auto}
-  .hub-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-  .hub-card{background:linear-gradient(160deg,var(--panel),#081810);border:1px solid var(--borde);border-radius:22px;padding:38px 34px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:.25s}
-  .hub-card:hover{border-color:var(--oro);transform:translateY(-4px)}
-  .hub-card::after{content:"";position:absolute;right:-70px;top:-70px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,76,.14),transparent 70%);pointer-events:none}
-  .hub-badge{display:inline-flex;align-self:flex-start;align-items:center;gap:8px;border:1px solid var(--oro);color:var(--oro-brillo);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px;padding:6px 16px;border-radius:30px;background:rgba(201,162,76,.07);margin-bottom:18px}
-  .hub-card h2{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(26px,3vw,34px);line-height:1.05;margin-bottom:14px}
-  .hub-card p{color:#9fc4ad;font-size:15px;max-width:460px}
-  .checklist{list-style:none;margin:22px 0;position:relative;z-index:2}
-  .checklist li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px dashed rgba(201,162,76,.25);font-size:15px;color:#cfe6d8}
-  .checklist li:last-child{border-bottom:none}
-  .checklist li b{color:#fff}
-  .check{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--verde-luz);color:var(--fondo);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-top:1px}
-  .hub-card.mcdavo .check{background:var(--oro);color:var(--negro)}
-  .btn-cta{margin-top:auto;align-self:flex-start;background:linear-gradient(120deg,var(--oro) 0%,var(--oro-brillo) 50%,var(--oro) 100%);background-size:200%;color:var(--negro);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:16px;padding:14px 32px;border-radius:10px;text-decoration:none;box-shadow:0 8px 30px rgba(201,162,76,.3);transition:.3s;position:relative;z-index:2}
-  .btn-cta:hover{background-position:100%;transform:translateY(-2px)}
-  .btn-cta.alt{background:var(--verde-luz);box-shadow:0 8px 30px rgba(47,174,102,.3)}
-  .btn-cta.alt:hover{background:var(--oro);color:var(--negro)}
-
-  /* ===== FOOTER ===== */
-  footer{background:var(--negro);padding:34px 6vw;text-align:center}
-  footer .logo{font-size:28px;margin-bottom:10px;justify-content:center;display:flex}
-  footer .legal{font-size:12px;color:#7a8a80;max-width:720px;margin:0 auto;line-height:1.7}
-  footer .legal b{color:#c9c9c9}
-
-  @media(max-width:900px){
-    .main-nav{display:none}
-    .burger{display:flex}
-    .topbar-inner > .nav-cta{display:none}
-    .topbar-inner{justify-content:flex-start}
-    .hub-grid{grid-template-columns:1fr}
-  }
-  @media(max-width:560px){
-    .topbar-inner{padding:12px 5vw}
-    .logo{font-size:22px}
-    .hub-card{padding:30px 22px}
-  }
-</style>
+<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
@@ -97,7 +17,7 @@
     <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-    <a href="index.html" class="logo">LAIF<span>BET</span></a>
+    <a href="index.html" class="logo"><img src="images/logo.webp" alt="LaifBet" style="height:26px;display:block"></a>
     <div class="main-nav">
       <a href="#inicio">Inicio</a>
       <a href="loyalty-program.html">Programa de Lealtad</a>
@@ -150,24 +70,10 @@
 </section>
 
 <footer>
-  <a href="index.html" class="logo">LAIF<span style="color:var(--verde-luz)">BET</span></a>
+  <a href="index.html" class="logo"><img src="images/logo.webp" alt="LaifBet" style="height:36px;display:block;margin:0 auto"></a>
   <p class="legal">Juega con responsabilidad. <b>+18.</b> Aplican Términos y Condiciones de cada promoción y del Programa de Lealtad. LaifBet no se hace responsable del uso indebido de esta plataforma.</p>
 </footer>
 
-<script>
-  const topbar = document.getElementById('topbar');
-  const burgerBtn = document.getElementById('burgerBtn');
-  burgerBtn.addEventListener('click', () => {
-    const isOpen = topbar.classList.toggle('open');
-    burgerBtn.setAttribute('aria-expanded', isOpen);
-  });
-  document.querySelectorAll('.mobile-nav a').forEach(a => {
-    a.addEventListener('click', () => {
-      topbar.classList.remove('open');
-      burgerBtn.setAttribute('aria-expanded', 'false');
-    });
-  });
-</script>
-
+<script src="js/index.js"></script>
 </body>
 </html>
