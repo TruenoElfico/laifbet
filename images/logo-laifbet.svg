@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="60" viewBox="0 0 240 60">
+  <rect width="240" height="60" fill="#000000"/>
+  <rect x="2" y="2" width="236" height="56" fill="none" stroke="#39ff5c" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.5"/>
+  <text x="120" y="26" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#39ff5c" text-anchor="middle" letter-spacing="2">LOGO</text>
+  <text x="120" y="44" font-family="Arial, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" letter-spacing="1" opacity="0.7">REEMPLAZAR</text>
+</svg>

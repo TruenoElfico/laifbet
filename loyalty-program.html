@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programa de Lealtad — LaifBet</title>
+<meta name="description" content="Sube de nivel en LaifBet y recibe cashback semanal sin rollover. 7 niveles, de Amateur a Élite. Lo ganas, lo retiras.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde:#0F502B; --verde-osc:#0B371E; --negro:#000; --gris:#D9D9D9; --blanco:#fff;
+    --verde-luz:#2FAE66; --oro:#C9A24C; --oro-brillo:#ECD596;
+    --fondo:#06120C; --panel:#0C2015; --borde:#1B3A28;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Hanken Grotesk',sans-serif;background:var(--fondo);color:#fff;line-height:1.6;overflow-x:hidden;
+    background-image:
+      radial-gradient(ellipse at 50% -10%, rgba(201,162,76,.14), transparent 55%),
+      radial-gradient(circle at 8% 40%, rgba(47,174,102,.08), transparent 45%),
+      radial-gradient(circle at 95% 80%, rgba(15,80,43,.25), transparent 50%);}
+
+  .sr{font-family:'Saira Condensed',sans-serif;font-style:italic}
+
+  /* ===== DRAFT BANNER (quitar antes de publicar) ===== */
+  .draft{background:#3a2f10;color:var(--oro-brillo);font-size:12px;text-align:center;padding:8px 16px;letter-spacing:.5px}
+  .draft b{color:#fff}
+
+  /* ===== NAV ===== */
+  nav{display:flex;justify-content:space-between;align-items:center;padding:18px 6vw;position:relative;z-index:5}
+  .logo{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:28px;letter-spacing:1px}
+  .logo span{color:var(--verde-luz)}
+  .nav-cta{background:var(--verde-luz);color:var(--fondo);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:10px 26px;border-radius:8px;text-decoration:none;font-size:15px;transition:.2s}
+  .nav-cta:hover{background:var(--oro);color:var(--negro)}
+
+  /* ===== HERO ===== */
+  .hero{text-align:center;padding:60px 6vw 80px;position:relative}
+  .hero::before{content:"";position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:900px;height:500px;
+    background:radial-gradient(ellipse, rgba(201,162,76,.12) 0%, transparent 65%);pointer-events:none}
+  .hero .kicker{display:inline-block;border:1px solid var(--oro);color:var(--oro-brillo);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:13px;padding:7px 20px;border-radius:30px;margin-bottom:26px;background:rgba(201,162,76,.07)}
+  .hero h1{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(46px,8vw,92px);line-height:.92;letter-spacing:1px}
+  .hero h1 .gold{background:linear-gradient(180deg,var(--oro-brillo) 0%,var(--oro) 45%,#8a6b2a 75%,var(--oro-brillo) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 8px rgba(201,162,76,.35))}
+  .hero .sub{max-width:640px;margin:22px auto 0;font-size:19px;color:#bfe0cc}
+  .hero .sub b{color:#fff}
+  .hero .ctas{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn-oro{background:linear-gradient(120deg,var(--oro) 0%,var(--oro-brillo) 50%,var(--oro) 100%);background-size:200%;color:var(--negro);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:19px;padding:16px 46px;border-radius:10px;text-decoration:none;box-shadow:0 8px 30px rgba(201,162,76,.35);transition:.3s}
+  .btn-oro:hover{background-position:100%;transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--verde-luz);color:var(--verde-luz);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:19px;padding:16px 36px;border-radius:10px;text-decoration:none;transition:.2s}
+  .btn-ghost:hover{background:rgba(47,174,102,.12)}
+  .hero .req{margin-top:26px;font-size:14px;color:#7fae93}
+  .hero .req b{color:var(--oro-brillo)}
+
+  /* ===== SECCIONES ===== */
+  section{padding:70px 6vw;max-width:1200px;margin:0 auto}
+  .sec-kicker{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;color:var(--verde-luz);letter-spacing:3px;text-transform:uppercase;font-size:13px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+  .sec-kicker::before{content:"";width:26px;height:2px;background:var(--oro)}
+  h2{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(32px,4.5vw,50px);line-height:1;margin-bottom:16px}
+  .sec-sub{color:#9fc4ad;max-width:640px;font-size:17px}
+
+  /* ===== PASOS ===== */
+  .pasos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+  .paso{background:var(--panel);border:1px solid var(--borde);border-radius:16px;padding:28px 22px;position:relative;transition:.25s}
+  .paso:hover{border-color:var(--oro);transform:translateY(-4px)}
+  .paso .n{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:54px;line-height:.8;background:linear-gradient(180deg,var(--oro-brillo),var(--oro));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .paso .tt{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;font-size:20px;margin:14px 0 6px;letter-spacing:.5px}
+  .paso .dd{font-size:14px;color:#9fc4ad}
+  .paso .dd b{color:#fff}
+  /* ===== NIVELES ===== */
+  .niveles-wrap{padding-top:70px}
+  .escalera{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;align-items:end;margin-top:50px}
+  .nivel{border-radius:14px 14px 0 0;padding:20px 12px 18px;text-align:center;position:relative;border:1px solid var(--borde);border-bottom:3px solid var(--verde-luz);background:linear-gradient(180deg,var(--panel),#081810);transition:.25s;cursor:pointer}
+  .nivel:hover{transform:translateY(-6px)}
+  .nivel .ico{font-size:26px;margin-bottom:6px}
+  .nivel .nm{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;font-size:17px;letter-spacing:.5px;line-height:1}
+  .nivel .lv{font-size:10px;color:#7fae93;text-transform:uppercase;letter-spacing:2px;margin-top:4px}
+  .nivel .cb{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:26px;color:var(--verde-luz);margin-top:10px;line-height:1}
+  .nivel .cb small{font-size:11px;display:block;font-weight:600;color:#7fae93;font-style:normal;font-family:'Hanken Grotesk',sans-serif;letter-spacing:0}
+  /* alturas de escalera */
+  .nivel.h1{padding-top:20px}.nivel.h2{padding-top:32px}.nivel.h3{padding-top:44px}.nivel.h4{padding-top:56px}.nivel.h5{padding-top:68px}.nivel.h6{padding-top:80px}
+  .nivel.h7{padding-top:96px;border-color:var(--oro);border-bottom-color:var(--oro);background:linear-gradient(180deg,#241c08,#0d0a03)}
+  .nivel.h7 .nm{background:linear-gradient(180deg,var(--oro-brillo),var(--oro));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nivel.h7 .cb{color:var(--oro-brillo)}
+  .nivel.h6,.nivel.h5{border-bottom-color:var(--oro)}
+  .nivel.h7::before{content:"★ MÁXIMO NIVEL";position:absolute;top:10px;left:50%;transform:translateX(-50%);font-size:8px;letter-spacing:2px;color:var(--oro);font-weight:800;white-space:nowrap}
+
+  /* ===== TABLA DE REQUISITOS ===== */
+  .req-tabla{margin-top:60px;overflow-x:auto}
+  table{width:100%;border-collapse:collapse;min-width:720px;border-radius:14px;overflow:hidden}
+  thead th{background:var(--verde-osc);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:14px;padding:16px;text-align:left;color:var(--oro-brillo)}
+  tbody td{padding:15px 16px;border-bottom:1px solid var(--borde);font-size:15px;background:rgba(12,32,21,.6)}
+  tbody tr:last-child td{border-bottom:none;background:rgba(36,28,8,.55)}
+  tbody tr:last-child .tnm{color:var(--oro-brillo)}
+  .tnm{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;font-size:17px;letter-spacing:.5px}
+  td.num{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;color:#cfe6d8}
+  td.cbnum{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;color:var(--verde-luz);font-size:18px}
+  tbody tr:last-child td.cbnum{color:var(--oro-brillo)}
+  .tabla-nota{font-size:12px;color:#5f8770;margin-top:12px}
+
+  /* ===== CASHBACK ===== */
+  .cash{background:linear-gradient(120deg,var(--verde-osc),#081810);border:1px solid var(--oro);border-radius:22px;padding:54px 6vw;max-width:1200px;margin:30px auto;display:flex;gap:40px;align-items:center;flex-wrap:wrap;position:relative;overflow:hidden}
+  .cash::after{content:"";position:absolute;right:-80px;top:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,76,.18),transparent 70%)}
+  .cash .tx{flex:1;min-width:280px;position:relative;z-index:2}
+  .cash h2 .gold{background:linear-gradient(180deg,var(--oro-brillo),var(--oro));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .cash ul{list-style:none;margin-top:18px}
+  .cash li{padding:10px 0;border-bottom:1px dashed rgba(201,162,76,.25);font-size:16px;color:#cfe6d8;display:flex;gap:12px;align-items:baseline}
+  .cash li::before{content:"◆";color:var(--oro);font-size:11px}
+  .cash li b{color:#fff}
+  .cash .big{flex:0 0 300px;text-align:center;position:relative;z-index:2}
+  .cash .big .pct{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:110px;line-height:.8;background:linear-gradient(180deg,var(--oro-brillo) 0%,var(--oro) 50%,#8a6b2a 80%,var(--oro-brillo) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 16px rgba(201,162,76,.4))}
+  .cash .big .lbl{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-top:10px;color:#cfe6d8}
+  /* ===== FAQ ===== */
+  .faq{max-width:800px}
+  details{background:var(--panel);border:1px solid var(--borde);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  summary{cursor:pointer;padding:18px 22px;font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.5px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  summary::after{content:"+";color:var(--oro);font-size:24px;font-weight:400}
+  details[open] summary::after{content:"−"}
+  details[open]{border-color:var(--oro)}
+  details p{padding:0 22px 20px;color:#9fc4ad;font-size:15px}
+  details p b{color:#fff}
+
+  /* ===== TYC ===== */
+  .tyc{max-width:860px}
+  .tyc-lista{margin-top:24px;counter-reset:cl;list-style:none}
+  .tyc-lista li{position:relative;padding:16px 0 16px 54px;border-bottom:1px solid var(--borde);font-size:14px;color:#9fc4ad;counter-increment:cl}
+  .tyc-lista li::before{content:counter(cl,decimal-leading-zero);position:absolute;left:0;top:14px;font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:22px;color:var(--oro)}
+  .tyc-lista li b{color:#fff}
+  .pd{display:inline-block;background:#3a2f10;color:var(--oro-brillo);font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-left:4px}
+
+  /* ===== CALCULADORA ===== */
+  .calc-sec{max-width:760px}
+  .calc{background:var(--panel);border:1px solid var(--oro);border-radius:20px;padding:34px;margin-top:30px;box-shadow:0 12px 44px rgba(0,0,0,.4)}
+  .calc label{font-size:14px;color:#9fc4ad;display:block;margin-bottom:10px}
+  .calc-row{display:flex;gap:10px;align-items:stretch}
+  .peso{display:flex;align-items:center;font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:26px;color:var(--oro)}
+  #dep{flex:1;background:#081810;border:1px solid var(--borde);border-radius:10px;color:#fff;font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;font-size:26px;padding:12px 16px;min-width:0}
+  #dep:focus{outline:none;border-color:var(--oro)}
+  .calc-btn{border:none;cursor:pointer;font-size:16px;padding:12px 30px}
+  .calc-out{margin-top:26px;border-top:1px dashed rgba(201,162,76,.3);padding-top:22px;text-align:center}
+  .co-nivel{font-size:15px;color:#9fc4ad}
+  .co-nivel b{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;font-size:22px;color:var(--oro-brillo);letter-spacing:1px}
+  .co-pct{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:84px;line-height:.9;margin-top:8px;background:linear-gradient(180deg,var(--oro-brillo) 0%,var(--oro) 55%,#8a6b2a 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .co-lbl{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:14px;color:#cfe6d8;margin-top:6px}
+  .co-ej{margin-top:14px;font-size:14px;color:#9fc4ad}
+  .co-ej b{color:var(--verde-luz)}
+
+  /* ===== CTA FINAL ===== */
+  .final{text-align:center;padding:90px 6vw}
+  .final h2{font-size:clamp(36px,5vw,60px)}
+  .final .gold{background:linear-gradient(180deg,var(--oro-brillo),var(--oro));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--negro);padding:34px 6vw;text-align:center}
+  footer .logo{font-size:30px;margin-bottom:10px}
+  footer .legal{font-size:12px;color:#7a8a80;max-width:720px;margin:0 auto;line-height:1.7}
+  footer .legal b{color:#c9c9c9}
+  .rs{margin-top:14px;font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:16px;color:var(--oro-brillo);letter-spacing:1px}
+
+  @media(max-width:900px){
+    .pasos{grid-template-columns:repeat(2,1fr)}
+    .escalera{grid-template-columns:repeat(4,1fr)}
+    .nivel.h1,.nivel.h2,.nivel.h3,.nivel.h4,.nivel.h5,.nivel.h6{padding-top:24px}
+    .nivel.h7{padding-top:34px;grid-column:span 4}
+  }
+  @media(max-width:560px){
+    .pasos{grid-template-columns:1fr}
+    .escalera{grid-template-columns:repeat(2,1fr)}
+    .nivel.h7{grid-column:span 2}
+    .cash .big .pct{font-size:80px}
+  }
+</style>
+</head>
+<body>
+
+<div class="draft">⚠ <b>BORRADOR INTERNO</b> — pendiente: regla exacta de escalación (mínimos vs. rangos), número de licencia y validación legal del disclaimer. Quitar esta barra antes de publicar.</div>
+
+<nav>
+  <div class="logo">LAIF<span>BET</span></div>
+  <a class="nav-cta" href="#unete">Únete ahora</a>
+</nav>
+
+<header class="hero">
+  <div class="kicker">Programa de Lealtad LaifBet</div>
+  <h1>Mientras más juegas,<br><span class="gold">más te regresamos</span></h1>
+  <p class="sub">Sube por <b>7 niveles</b> — de Amateur a Élite — y recibe <b>cashback semanal sin rollover</b>. Lo ganas, lo retiras. Sin letras chiquitas.</p>
+  <div class="ctas">
+    <a class="btn-oro" href="#unete">Activar con mi depósito</a>
+    <a class="btn-ghost" href="#niveles">Ver los niveles</a>
+  </div>
+  <p class="req">Entras al programa con <b>tu primer depósito</b>. Así de simple.</p>
+</header>
+
+<section>
+  <div class="sec-kicker">Cómo funciona</div>
+  <h2>Cuatro pasos. Cero trucos.</h2>
+  <div class="pasos">
+    <div class="paso"><div class="n">1</div><div class="tt">Deposita</div><div class="dd">Con <b>tu primer depósito</b> quedas dentro del programa automáticamente. No hay inscripción aparte.</div></div>
+    <div class="paso"><div class="n">2</div><div class="tt">Juega</div><div class="dd">Slots, casino en vivo, pesca, crash y deportes. <b>Todo lo que juegas cuenta</b> para tu nivel.</div></div>
+    <div class="paso"><div class="n">3</div><div class="tt">Sube de nivel</div><div class="dd">Tus depósitos y apuestas acumuladas te suben de Amateur hasta <b>Élite</b>. Más nivel, más cashback.</div></div>
+    <div class="paso"><div class="n">4</div><div class="tt">Cobra</div><div class="dd">Cada semana recibes tu cashback <b>sin rollover</b>. Lo retiras o lo juegas: tú decides.</div></div>
+  </div>
+</section>
+
+<section id="niveles" class="niveles-wrap">
+  <div class="sec-kicker">Los 7 niveles</div>
+  <h2>De Amateur a <span style="background:linear-gradient(180deg,var(--oro-brillo),var(--oro));-webkit-background-clip:text;background-clip:text;color:transparent">Élite</span></h2>
+  <p class="sec-sub">Cada nivel aumenta tu porcentaje de cashback semanal. Tu progreso se calcula con tus depósitos y apuestas acumuladas.</p>
+
+  <div class="escalera">
+    <div class="nivel h1"><div class="ico">🎯</div><div class="nm">Amateur</div><div class="lv">Nivel 1</div><div class="cb">5%<small>cashback semanal</small></div></div>
+    <div class="nivel h2"><div class="ico">⚡</div><div class="nm">Semi-Pro</div><div class="lv">Nivel 2</div><div class="cb">7%<small>cashback semanal</small></div></div>
+    <div class="nivel h3"><div class="ico">🔥</div><div class="nm">Profesional</div><div class="lv">Nivel 3</div><div class="cb">9%<small>cashback semanal</small></div></div>
+    <div class="nivel h4"><div class="ico">💎</div><div class="nm">Crack</div><div class="lv">Nivel 4</div><div class="cb">11%<small>cashback semanal</small></div></div>
+    <div class="nivel h5"><div class="ico">🏆</div><div class="nm">Campeón</div><div class="lv">Nivel 5</div><div class="cb">13%<small>cashback semanal</small></div></div>
+    <div class="nivel h6"><div class="ico">👑</div><div class="nm">Leyenda</div><div class="lv">Nivel 6</div><div class="cb">15%<small>cashback semanal</small></div></div>
+    <div class="nivel h7"><div class="ico">🐆</div><div class="nm">Élite</div><div class="lv">Nivel 7</div><div class="cb">17%<small>cashback semanal</small></div></div>
+  </div>
+  <div class="req-tabla">
+    <table>
+      <thead><tr><th>Nivel</th><th>Depósito acumulado</th><th>Apuestas acumuladas</th><th>Cashback semanal</th></tr></thead>
+      <tbody>
+        <tr><td class="tnm">Amateur</td><td class="num">$100</td><td class="num">$499</td><td class="cbnum">5%</td></tr>
+        <tr><td class="tnm">Semi-Pro</td><td class="num">$500</td><td class="num">$1,499</td><td class="cbnum">7%</td></tr>
+        <tr><td class="tnm">Profesional</td><td class="num">$1,500</td><td class="num">$4,499</td><td class="cbnum">9%</td></tr>
+        <tr><td class="tnm">Crack</td><td class="num">$4,500</td><td class="num">$13,499</td><td class="cbnum">11%</td></tr>
+        <tr><td class="tnm">Campeón</td><td class="num">$13,500</td><td class="num">$39,999</td><td class="cbnum">13%</td></tr>
+        <tr><td class="tnm">Leyenda</td><td class="num">$40,000</td><td class="num">$119,999</td><td class="cbnum">15%</td></tr>
+        <tr><td class="tnm">Élite</td><td class="num">$120,000</td><td class="num">$300,000</td><td class="cbnum">17%</td></tr>
+      </tbody>
+    </table>
+    <p class="tabla-nota">Montos en pesos mexicanos (MXN). Se requiere al menos 1 depósito para participar. Aplican Términos y Condiciones del programa.</p>
+  </div>
+</section>
+
+<section class="calc-sec" id="calculadora">
+  <div class="sec-kicker">Calcúlalo tú mismo</div>
+  <h2>¿Cuánto te <span style="background:linear-gradient(180deg,var(--oro-brillo),var(--oro));-webkit-background-clip:text;background-clip:text;color:transparent">regresamos</span>?</h2>
+  <div class="calc">
+    <div class="calc-in">
+      <label for="dep">¿Cuánto has depositado en total? (MXN)</label>
+      <div class="calc-row">
+        <span class="peso">$</span>
+        <input type="number" id="dep" min="0" placeholder="1,500" inputmode="numeric">
+        <button class="btn-oro calc-btn" onclick="calc()">Calcular</button>
+      </div>
+    </div>
+    <div class="calc-out" id="out" style="display:none">
+      <div class="co-nivel">Tu nivel: <b id="oNivel">—</b></div>
+      <div class="co-pct" id="oPct">—</div>
+      <div class="co-lbl">estimado de cashback semanal</div>
+      <div class="co-ej" id="oEj"></div>
+    </div>
+  </div>
+</section>
+
+<div class="cash">
+  <div class="tx">
+    <div class="sec-kicker">La diferencia LaifBet</div>
+    <h2>Cashback semanal <span class="gold">sin condiciones</span></h2>
+    <ul>
+      <li><b>Sin rollover.</b> Lo que te regresamos es tuyo desde el segundo uno.</li>
+      <li><b>Cada semana.</b> Tu cashback llega puntual, todas las semanas.</li>
+      <li><b>Lo ganas, lo retiras.</b> O lo juegas. Nadie te obliga a nada.</li>
+      <li><b>Sube de nivel, sube tu porcentaje.</b> Élite recibe el máximo.</li>
+    </ul>
+  </div>
+  <div class="big">
+    <div class="pct">$$$</div>
+    <div class="lbl">De vuelta a tu bolsillo,<br>cada semana</div>
+  </div>
+</div>
+
+<section class="faq">
+  <div class="sec-kicker">Dudas rápidas</div>
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Cómo entro al programa?</summary><p>Con <b>tu primer depósito</b> quedas inscrito automáticamente. No hay formularios ni códigos.</p></details>
+  <details><summary>¿Cómo subo de nivel?</summary><p>Acumulando <b>depósitos y apuestas</b>. El sistema calcula tu progreso y te sube de nivel automáticamente.</p></details>
+  <details><summary>¿El cashback tiene rollover?</summary><p><b>No.</b> El cashback semanal de LaifBet no tiene requisitos de apuesta. Puedes retirarlo directamente.</p></details>
+  <details><summary>¿Cuándo recibo mi cashback?</summary><p>Se acredita <b>cada semana</b> en tu cuenta, según el nivel que tengas en ese momento.</p></details>
+  <details><summary>¿Puedo bajar de nivel?</summary><p>Tu nivel refleja tu actividad. Consulta los Términos y Condiciones del programa para las reglas completas de permanencia.</p></details>
+</section>
+
+<section class="final" id="unete">
+  <h2>Tu lealtad <span class="gold">vale oro</span></h2>
+  <p class="sec-sub" style="margin:14px auto 0">Deposita hoy, entra al programa y empieza a recibir cashback semanal.</p>
+  <div class="ctas" style="margin-top:32px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap">
+    <a class="btn-oro" href="https://laifbet.mx">Crear mi cuenta</a>
+    <a class="btn-ghost" href="https://laifbet.mx">Ya tengo cuenta</a>
+  </div>
+</section>
+
+<section class="tyc" id="terminos">
+  <div class="sec-kicker">Lo legal, claro</div>
+  <h2>Términos y Condiciones del programa</h2>
+  <ol class="tyc-lista">
+    <li><b>Elegibilidad.</b> Programa exclusivo para usuarios registrados en LaifBet, mayores de 18 años, con cuenta verificada y residencia en México.</li>
+    <li><b>Inscripción.</b> La participación se activa automáticamente al realizar <b>al menos un (1) depósito</b>. No requiere registro adicional.</li>
+    <li><b>Niveles.</b> El programa consta de 7 niveles (Amateur, Semi-Pro, Profesional, Crack, Campeón, Leyenda y Élite). El nivel se determina según el depósito acumulado y las apuestas acumuladas del usuario, conforme a la tabla publicada en esta página. Montos en pesos mexicanos (MXN). <span class="pd">[POR DEFINIR: regla exacta de escalación y descenso — validar en OCMS]</span></li>
+    <li><b>Cashback semanal.</b> El cashback se calcula sobre las <b>pérdidas netas</b> del periodo semanal, según el porcentaje correspondiente al nivel del usuario al momento del corte. <span class="pd">[POR DEFINIR: día de corte y día de pago]</span></li>
+    <li><b>Sin rollover.</b> El cashback acreditado no tiene requisitos de apuesta y puede retirarse conforme a la Política de Pagos y Retiros de LaifBet.</li>
+    <li><b>Una cuenta por persona.</b> Cuentas múltiples, duplicadas o con actividad fraudulenta serán excluidas del programa y podrán perder los beneficios acumulados.</li>
+    <li><b>Juego limpio.</b> LaifBet se reserva el derecho de revisar la actividad de cualquier cuenta y de suspender beneficios ante indicios de abuso, colusión o incumplimiento de los Términos y Condiciones Generales.</li>
+    <li><b>Modificaciones.</b> LaifBet podrá modificar o cancelar el programa notificando a los usuarios a través de sus canales oficiales con anticipación razonable.</li>
+    <li><b>Marco general.</b> Aplican los Términos y Condiciones Generales de LaifBet, la Política de Pagos y la Política KYC/AML, disponibles en laifbet.mx.</li>
+  </ol>
+</section>
+
+<footer>
+  <div class="logo">LAIF<span>BET</span></div>
+  <p class="legal">Programa de Lealtad LaifBet. Aplican Términos y Condiciones. Los porcentajes de cashback y requisitos de nivel están sujetos a las bases oficiales del programa publicadas en laifbet.mx. Operado bajo licencia MGA.</p>
+  <div class="rs">+18 · JUEGA RESPONSABLE</div>
+</footer>
+
+<script>
+  const NIVELES=[
+    {nm:'Amateur',min:100,pct:5},{nm:'Semi-Pro',min:500,pct:7},{nm:'Profesional',min:1500,pct:9},
+    {nm:'Crack',min:4500,pct:11},{nm:'Campeón',min:13500,pct:13},{nm:'Leyenda',min:40000,pct:15},
+    {nm:'Élite',min:120000,pct:17}
+  ];
+  function calc(){
+    const dep=parseFloat(document.getElementById('dep').value)||0;
+    const out=document.getElementById('out');out.style.display='block';
+    let n=null;for(const x of NIVELES){if(dep>=x.min)n=x}
+    if(!n){
+      document.getElementById('oNivel').textContent='Aún sin nivel';
+      document.getElementById('oPct').textContent='—';
+      document.getElementById('oEj').innerHTML='Con tu primer depósito de <b>$100</b> entras como Amateur.';
+      return;
+    }
+    const ret=(dep*n.pct/100).toLocaleString('es-MX',{maximumFractionDigits:0});
+    document.getElementById('oNivel').textContent=n.nm;
+    document.getElementById('oPct').textContent='$'+ret;
+    document.getElementById('oEj').innerHTML='Con <b>$'+dep.toLocaleString('es-MX')+'</b>, podrías recibir hasta <b>$'+ret+'</b> de cashback. Calculado sobre pérdidas netas semanales, sin rollover.';
+  }
+  document.getElementById('dep').addEventListener('keydown',e=>{if(e.key==='Enter')calc()});
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4d1b1b"/>
+      <stop offset="1" stop-color="#220a0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#g)"/>
+  <rect x="10" y="10" width="380" height="380" fill="none" stroke="#39ff5c" stroke-width="2" stroke-dasharray="8 6" opacity="0.45"/>
+  <circle cx="200" cy="160" r="46" fill="none" stroke="#39ff5c" stroke-width="3" opacity="0.6"/>
+  <path d="M200 130 L200 190 M170 160 L230 160" stroke="#39ff5c" stroke-width="3" opacity="0.6"/>
+  <text x="200" y="250" font-family="Arial, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle" opacity="0.92">DRAGON HUNTER</text>
+  <text x="200" y="278" font-family="Arial, sans-serif" font-size="12" letter-spacing="3" fill="#39ff5c" text-anchor="middle" opacity="0.85">IMAGEN TEMPORAL</text>
+</svg>
