@@ -26,6 +26,13 @@
   .main-nav{display:flex;gap:26px}
   .main-nav a{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:15px;color:#cfe6d8;text-decoration:none;padding:6px 0}
   .main-nav a:hover,.main-nav a.active{color:var(--verde-luz)}
+  .burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:44px;height:44px;background:var(--oro);border:none;border-radius:10px;cursor:pointer;flex-shrink:0}
+  .burger span{width:20px;height:2px;background:var(--negro);border-radius:2px}
+  .mobile-nav{display:none;flex-direction:column;background:var(--verde-osc);border-top:1px solid var(--borde);padding:10px 6vw 20px}
+  .mobile-nav a{padding:14px 0;font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:15px;color:#cfe6d8;border-bottom:1px solid var(--borde);text-decoration:none}
+  .mobile-nav a.active{color:var(--verde-luz)}
+  .mobile-nav .nav-cta{display:inline-block;margin-top:14px;text-align:center;border-bottom:none}
+  nav.open + .mobile-nav{display:flex}
 
   /* ===== HERO ===== */
   .hero{text-align:center;padding:60px 6vw 80px;position:relative}
@@ -151,6 +158,8 @@
 
   @media(max-width:900px){
     .main-nav{display:none}
+    .burger{display:flex}
+    nav > .nav-cta{display:none}
     .pasos{grid-template-columns:repeat(2,1fr)}
     .escalera{grid-template-columns:repeat(4,1fr)}
     .nivel.h1,.nivel.h2,.nivel.h3,.nivel.h4,.nivel.h5,.nivel.h6{padding-top:24px}

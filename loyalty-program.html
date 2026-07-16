@@ -15,15 +15,24 @@
 
 <div class="draft">⚠ <b>BORRADOR INTERNO</b> — pendiente: regla exacta de escalación (mínimos vs. rangos), número de licencia y validación legal del disclaimer. Quitar esta barra antes de publicar.</div>
 
-<nav>
-  <div class="logo"><img src="images/logo.webp" alt="LaifBet" style="height:26px;display:block"></div>
+<nav id="topbar">
+  <a href="index.html" class="logo"><img src="images/logo.webp" alt="LaifBet" style="height:26px;display:block"></a>
   <div class="main-nav">
     <a href="index.html">Inicio</a>
     <a href="loyalty-program.html" class="active">Programa de Lealtad</a>
     <a href="mcddavo.html">MC Davo</a>
   </div>
+  <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <a class="nav-cta" href="#unete">Únete ahora</a>
 </nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Inicio</a>
+  <a href="loyalty-program.html" class="active">Programa de Lealtad</a>
+  <a href="mcddavo.html">MC Davo</a>
+  <a class="nav-cta" href="#unete">Únete ahora</a>
+</div>
 
 <header class="hero">
   <div class="kicker">Programa de Lealtad LaifBet</div>
@@ -156,10 +165,12 @@
 </section>
 
 <footer>
-  <div class="logo"><img src="images/logo.webp" alt="LaifBet" style="height:36px;display:block;margin:0 auto"></div>
+  <a href="index.html" class="logo"><img src="images/logo.webp" alt="LaifBet" style="height:36px;display:block;margin:0 auto"></a>
   <p class="legal">Programa de Lealtad LaifBet. Aplican Términos y Condiciones. Los porcentajes de cashback y requisitos de nivel están sujetos a las bases oficiales del programa publicadas en laifbet.mx. Operado bajo licencia MGA.</p>
   <div class="rs">+18 · JUEGA RESPONSABLE</div>
 </footer>
 
-<script src="js/loyalty-program.js"></script></body>
+<script src="js/nav.js"></script>
+<script src="js/loyalty-program.js"></script>
+</body>
 </html>
