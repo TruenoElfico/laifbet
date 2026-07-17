@@ -14,8 +14,9 @@
   .gold{background:linear-gradient(180deg,var(--oro-brillo) 0%,var(--oro) 45%,#8a6b2a 75%,var(--oro-brillo) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 8px rgba(201,162,76,.35))}
 
   /* ===== NAVBAR ===== */
-  .topbar{background:var(--verde-osc);border-bottom:1px solid var(--borde);position:sticky;top:0;z-index:100}
-  .topbar-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 6vw;gap:20px}
+  .topbar{border-bottom:1px solid var(--borde);position:fixed;top:0;left:0;width:100%;z-index:100;background:transparent;transition:background .3s ease,border-color .3s ease}
+  .topbar.scrolled{background:rgba(0,0,0,.92);border-bottom-color:var(--oro);backdrop-filter:blur(6px)}
+  .topbar-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:18px 6vw;gap:20px}
   .burger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:44px;height:44px;background:var(--oro);border:none;border-radius:10px;cursor:pointer;flex-shrink:0}
   .burger span{width:20px;height:2px;background:var(--negro);border-radius:2px}
   .logo{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:26px;letter-spacing:1px;white-space:nowrap;text-decoration:none}
@@ -25,14 +26,15 @@
   .main-nav a:hover{color:var(--verde-luz)}
   .nav-cta{background:var(--verde-luz);color:var(--fondo);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:14px;transition:.2s;white-space:nowrap}
   .nav-cta:hover{background:var(--oro);color:var(--negro)}
-  .mobile-nav{display:none;flex-direction:column;background:var(--verde-osc);border-top:1px solid var(--borde);padding:10px 6vw 20px}
+  .mobile-nav{position:fixed;top:0;right:0;height:100vh;height:100dvh;width:min(80vw,320px);display:flex;flex-direction:column;background:var(--verde-osc);border-left:1px solid var(--borde);padding:90px 24px 24px;transform:translateX(100%);transition:transform .3s ease;z-index:200;overflow-y:auto;box-shadow:-8px 0 24px rgba(0,0,0,.35)}
   .mobile-nav a{padding:14px 0;font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:15px;color:#cfe6d8;border-bottom:1px solid var(--borde);text-decoration:none}
-  .mobile-nav .nav-cta{display:inline-block;margin-top:14px;text-align:center}
-  .topbar.open .mobile-nav{display:flex}
+  .mobile-nav .nav-cta{display:inline-block;order:-1;margin-bottom:14px;text-align:center;border-bottom:none;background:var(--oro);color:var(--negro)}
+  .mobile-nav .nav-cta:hover{background:var(--oro-brillo)}
+  .topbar.open + .mobile-nav{transform:translateX(0)}
 
   /* ===== HERO ===== */
   .hero{text-align:center;padding:64px 6vw 56px;position:relative;max-width:1000px;margin:0 auto}
-  .hero::before{content:"";position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:900px;height:500px;
+  .hero::before{content:"";position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:min(900px,100vw);height:500px;
     background:radial-gradient(ellipse, rgba(201,162,76,.12) 0%, transparent 65%);pointer-events:none}
   .hero .kicker{display:inline-block;border:1px solid var(--oro);color:var(--oro-brillo);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:13px;padding:7px 20px;border-radius:30px;margin-bottom:26px;background:rgba(201,162,76,.07)}
   .hero h1{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(36px,6vw,64px);line-height:1;letter-spacing:1px}
@@ -69,11 +71,9 @@
     .main-nav{display:none}
     .burger{display:flex}
     .topbar-inner > .nav-cta{display:none}
-    .topbar-inner{justify-content:flex-start}
     .hub-grid{grid-template-columns:1fr}
   }
   @media(max-width:560px){
-    .topbar-inner{padding:12px 5vw}
     .logo{font-size:22px}
     .hub-card{padding:30px 22px}
   }

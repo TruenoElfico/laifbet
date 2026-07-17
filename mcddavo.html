@@ -12,17 +12,24 @@
 <link rel="stylesheet" href="css/mcddavo.css">
 </head>
 <body>
-<div class="draft">&#9888; <b>BORRADOR INTERNO</b> — las 13 portadas y los 13 links estan confirmados e integrados. Quitar esta barra antes de publicar.</div>
-
-<nav>
-  <div class="logo"><img src="images/logo.webp" alt="LaifBet" style="height:26px;display:block"></div>
+<nav id="topbar">
+  <a href="index.html" class="logo"><img src="images/logo.webp" alt="LaifBet" style="height:26px;display:block"></a>
   <div class="main-nav">
     <a href="index.html">Inicio</a>
     <a href="loyalty-program.html">Programa de Lealtad</a>
     <a href="mcddavo.html" class="active">MC Davo</a>
   </div>
+  <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <a class="nav-cta" href="#juegos">Entra al juego</a>
 </nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Inicio</a>
+  <a href="loyalty-program.html">Programa de Lealtad</a>
+  <a href="mcddavo.html" class="active">MC Davo</a>
+  <a class="nav-cta" href="#juegos">Entra al juego</a>
+</div>
 
 <header class="hero">
   <div class="kicker">LaifBet x MC Davo</div>
@@ -66,10 +73,12 @@
 </section>
 
 <footer>
-  <div class="logo"><img src="images/logo.webp" alt="LaifBet" style="height:36px;display:block;margin:0 auto"></div>
+  <a href="index.html" class="logo"><img src="images/logo.webp" alt="LaifBet" style="height:36px;display:block;margin:0 auto"></a>
   <p class="legal">LaifBet x MC Davo. Los juegos, promociones y disponibilidad estan sujetos a Terminos y Condiciones vigentes en laifbet.mx. Operado bajo licencia MGA.</p>
   <div class="rs">+18 &middot; JUEGA RESPONSABLE</div>
 </footer>
 
+<script src="js/nav.js"></script>
+<div class="draft">&#9888; <b>BORRADOR INTERNO</b> — las 13 portadas y los 13 links estan confirmados e integrados. Quitar esta barra antes de publicar.</div>
 </body>
 </html>
