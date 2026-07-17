@@ -11,24 +11,24 @@
       radial-gradient(circle at 8% 40%, rgba(47,174,102,.08), transparent 45%),
       radial-gradient(circle at 95% 80%, rgba(15,80,43,.25), transparent 50%);}
 
-  .sr{font-family:'Saira Condensed',sans-serif;font-style:italic}
+  .sr{font-family:'Saira Condensed',sans-serif;font-style:normal}
 
   .draft{position:fixed;bottom:0;left:0;width:100%;background:#3a2f10;color:var(--oro-brillo);font-size:12px;text-align:center;padding:8px 16px;letter-spacing:.5px;z-index:50}
   .draft b{color:#fff}
 
   nav{display:flex;align-items:center;gap:40px;padding:18px 6vw;position:fixed;top:0;left:0;width:100%;z-index:100;border-bottom:1px solid var(--borde);background:transparent;transition:background .3s ease,border-color .3s ease}
   nav.scrolled{background:rgba(0,0,0,.92);border-bottom-color:var(--oro);backdrop-filter:blur(6px)}
-  .logo{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:28px;letter-spacing:1px}
+  .logo{font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:800;font-size:28px;letter-spacing:1px}
   .logo span{color:var(--verde-luz)}
-  .nav-cta{background:var(--verde-luz);color:var(--fondo);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:10px 26px;border-radius:8px;text-decoration:none;font-size:15px;transition:.2s;margin-left:auto}
+  .nav-cta{background:var(--verde-luz);color:var(--fondo);font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:10px 26px;border-radius:8px;text-decoration:none;font-size:15px;transition:.2s;margin-left:auto}
   .nav-cta:hover{background:var(--oro);color:var(--negro)}
   .main-nav{display:flex;gap:26px}
-  .main-nav a{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:15px;color:#cfe6d8;text-decoration:none;padding:6px 0}
+  .main-nav a{font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:15px;color:#cfe6d8;text-decoration:none;padding:6px 0}
   .main-nav a:hover,.main-nav a.active{color:var(--verde-luz)}
   .burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:44px;height:44px;background:var(--oro);border:none;border-radius:10px;cursor:pointer;flex-shrink:0}
   .burger span{width:20px;height:2px;background:var(--negro);border-radius:2px}
   .mobile-nav{position:fixed;top:0;right:0;height:100vh;height:100dvh;width:min(80vw,320px);display:flex;flex-direction:column;background:var(--verde-osc);border-left:1px solid var(--borde);padding:90px 24px 24px;transform:translateX(100%);transition:transform .3s ease;z-index:200;overflow-y:auto;box-shadow:-8px 0 24px rgba(0,0,0,.35)}
-  .mobile-nav a{padding:14px 0;font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:15px;color:#cfe6d8;border-bottom:1px solid var(--borde);text-decoration:none}
+  .mobile-nav a{padding:14px 0;font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:15px;color:#cfe6d8;border-bottom:1px solid var(--borde);text-decoration:none}
   .mobile-nav a.active{color:var(--verde-luz)}
   .mobile-nav .nav-cta{display:inline-block;order:-1;margin-bottom:14px;text-align:center;border-bottom:none;background:var(--oro);color:var(--negro)}
   .mobile-nav .nav-cta:hover{background:var(--oro-brillo)}
@@ -42,23 +42,23 @@
   .hero{text-align:center;padding:60px 6vw 80px;position:relative}
   .hero::before{content:"";position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:min(900px,100vw);height:500px;
     background:radial-gradient(ellipse, rgba(201,162,76,.12) 0%, transparent 65%);pointer-events:none}
-  .hero .kicker{display:inline-block;border:1px solid var(--oro);color:var(--oro-brillo);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:13px;padding:7px 20px;border-radius:30px;margin-bottom:26px;background:rgba(201,162,76,.07)}
-  .hero h1{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(46px,8vw,92px);line-height:1.1;letter-spacing:1px}
+  .hero .kicker{display:inline-block;border:1px solid var(--oro);color:var(--oro-brillo);font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:13px;padding:7px 20px;border-radius:30px;margin-bottom:26px;background:rgba(201,162,76,.07)}
+  .hero h1{font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:800;text-transform:uppercase;font-size:clamp(46px,8vw,92px);line-height:1.1;letter-spacing:1px}
   .hero h1 .gold{background:linear-gradient(180deg,var(--oro-brillo) 0%,var(--oro) 45%,#8a6b2a 75%,var(--oro-brillo) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 8px rgba(201,162,76,.35))}
   .hero .sub{max-width:640px;margin:22px auto 0;font-size:19px;color:#bfe0cc}
   .hero .sub b{color:#fff}
   .hero .ctas{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .btn-oro{background:linear-gradient(120deg,var(--oro) 0%,var(--oro-brillo) 50%,var(--oro) 100%);background-size:200%;color:var(--negro);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:19px;padding:16px 46px;border-radius:10px;text-decoration:none;box-shadow:0 8px 30px rgba(201,162,76,.35);transition:.3s;display:inline-block}
+  .btn-oro{background:linear-gradient(120deg,var(--oro) 0%,var(--oro-brillo) 50%,var(--oro) 100%);background-size:200%;color:var(--negro);font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:19px;padding:16px 46px;border-radius:10px;text-decoration:none;box-shadow:0 8px 30px rgba(201,162,76,.35);transition:.3s;display:inline-block}
   .btn-oro:hover{background-position:100%;transform:translateY(-2px)}
-  .btn-ghost{border:1px solid var(--verde-luz);color:var(--verde-luz);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:19px;padding:16px 36px;border-radius:10px;text-decoration:none;transition:.2s;display:inline-block}
+  .btn-ghost{border:1px solid var(--verde-luz);color:var(--verde-luz);font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:19px;padding:16px 36px;border-radius:10px;text-decoration:none;transition:.2s;display:inline-block}
   .btn-ghost:hover{background:rgba(47,174,102,.12)}
   .hero .req{margin-top:26px;font-size:14px;color:#7fae93}
   .hero .req b{color:var(--oro-brillo)}
 
   section{padding:70px 6vw;max-width:1200px;margin:0 auto}
-  .sec-kicker{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;color:var(--verde-luz);letter-spacing:3px;text-transform:uppercase;font-size:13px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+  .sec-kicker{font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:700;color:var(--verde-luz);letter-spacing:3px;text-transform:uppercase;font-size:13px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
   .sec-kicker::before{content:"";width:26px;height:2px;background:var(--oro)}
-  h2{font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(32px,4.5vw,50px);line-height:1.15;margin-bottom:16px;padding-bottom:4px}
+  h2{font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:800;text-transform:uppercase;font-size:clamp(32px,4.5vw,50px);line-height:1.15;margin-bottom:16px;padding-bottom:4px}
   .sec-sub{color:#9fc4ad;max-width:640px;font-size:17px}
 
   .games-wrap{padding-top:50px}
@@ -66,9 +66,9 @@
   .juego{background:var(--panel);border:1px solid var(--borde);border-radius:14px;overflow:hidden;text-decoration:none;color:#fff;display:block;transition:.25s;position:relative}
   .juego:hover{border-color:var(--oro);transform:translateY(-4px)}
   .juego .thumb{position:relative;aspect-ratio:3/4;background:linear-gradient(160deg,#132a1c,#081108);border-bottom:1px solid var(--borde);overflow:hidden;display:flex;align-items:center;justify-content:center}
-  .juego .thumb::before{content:"SIN IMAGEN";position:absolute;top:46%;left:50%;transform:translate(-50%,-50%) rotate(-18deg);font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:12px;letter-spacing:2px;color:rgba(201,162,76,.3);white-space:nowrap}
+  .juego .thumb::before{content:"SIN IMAGEN";position:absolute;top:46%;left:50%;transform:translate(-50%,-50%) rotate(-18deg);font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:800;font-size:12px;letter-spacing:2px;color:rgba(201,162,76,.3);white-space:nowrap}
   .juego .ico{font-size:28px;opacity:.3;position:relative;z-index:1}
-  .juego .nm{padding:10px 12px;font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;font-size:14px;letter-spacing:.3px;line-height:1.2}
+  .juego .nm{padding:10px 12px;font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:700;text-transform:uppercase;font-size:14px;letter-spacing:.3px;line-height:1.2}
   .pend-tag{position:absolute;top:8px;right:8px;background:#3a2f10;color:var(--oro-brillo);font-size:8px;font-weight:700;padding:3px 7px;border-radius:20px;letter-spacing:.5px;z-index:2;text-transform:uppercase}
 
   .final{text-align:center;padding:90px 6vw}
@@ -79,7 +79,7 @@
   footer .logo{font-size:30px;margin-bottom:10px}
   footer .legal{font-size:12px;color:#7a8a80;max-width:720px;margin:0 auto;line-height:1.7}
   footer .legal b{color:#c9c9c9}
-  .rs{margin-top:14px;font-family:'Saira Condensed',sans-serif;font-style:italic;font-weight:800;font-size:16px;color:var(--oro-brillo);letter-spacing:1px}
+  .rs{margin-top:14px;font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:800;font-size:16px;color:var(--oro-brillo);letter-spacing:1px}
 
   @media(max-width:560px){
     .game-grid{grid-template-columns:repeat(2,1fr)}
