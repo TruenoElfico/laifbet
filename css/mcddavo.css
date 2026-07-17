@@ -8,18 +8,12 @@
 .juego{background:var(--panel);border:1px solid var(--borde);border-radius:14px;overflow:hidden;text-decoration:none;color:#fff;display:block;transition:.25s;position:relative}
 .juego:hover{border-color:var(--oro);transform:translateY(-4px)}
 .juego .thumb{position:relative;aspect-ratio:3/4;background:linear-gradient(160deg,#132a1c,#081108);border-bottom:1px solid var(--borde);overflow:hidden;display:flex;align-items:center;justify-content:center}
-.juego .thumb::before{content:"SIN IMAGEN";position:absolute;top:46%;left:50%;transform:translate(-50%,-50%) rotate(-18deg);font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:800;font-size:12px;letter-spacing:2px;color:rgba(201,162,76,.3);white-space:nowrap}
-.juego .ico{font-size:28px;opacity:.3;position:relative;z-index:1}
+.juego .thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .juego .nm{padding:10px 12px;font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:700;text-transform:uppercase;font-size:14px;letter-spacing:.3px;line-height:1.2}
-.pend-tag{position:absolute;top:8px;right:8px;background:#3a2f10;color:var(--oro-brillo);font-size:8px;font-weight:700;padding:3px 7px;border-radius:20px;letter-spacing:.5px;z-index:2;text-transform:uppercase}
 
 .final{text-align:center;padding:90px 6vw}
 .final h2{font-size:clamp(36px,5vw,60px)}
-.final .gold{background:linear-gradient(180deg,var(--oro-brillo),var(--oro));-webkit-background-clip:text;background-clip:text;color:transparent}
 
 @media(max-width:560px){
   .game-grid{grid-template-columns:repeat(2,1fr)}
 }
-
-.juego .thumb.has-img::before{content:none}
-.juego .thumb img{width:100%;height:100%;object-fit:cover;display:block}

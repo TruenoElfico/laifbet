@@ -14,12 +14,16 @@ body{font-family:'Hanken Grotesk',sans-serif;background:var(--fondo);color:#fff;
     radial-gradient(circle at 95% 80%, rgba(15,80,43,.25), transparent 50%);}
 a{color:inherit}
 .gold{background:linear-gradient(180deg,var(--oro-brillo) 0%,var(--oro) 45%,#8a6b2a 75%,var(--oro-brillo) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 8px rgba(201,162,76,.35))}
+.gold-soft{background:linear-gradient(180deg,var(--oro-brillo),var(--oro));-webkit-background-clip:text;background-clip:text;color:transparent}
+.badge{border:1px solid var(--oro);color:var(--oro-brillo);font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:700;text-transform:uppercase;border-radius:30px;background:rgba(201,162,76,.07)}
 
 /* ===== NAVBAR ===== */
 .topbar{display:flex;align-items:center;gap:40px;padding:18px 6vw;position:fixed;top:0;left:0;width:100%;z-index:100;border-bottom:1px solid var(--borde);background:transparent;transition:background .3s ease,border-color .3s ease}
 .topbar.scrolled{background:rgba(0,0,0,.92);border-bottom-color:var(--oro);backdrop-filter:blur(6px)}
 .logo{font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:800;font-size:28px;letter-spacing:1px;white-space:nowrap;text-decoration:none}
 .logo span{color:var(--verde-luz)}
+.logo img{height:26px;display:block}
+footer .logo img{height:36px;display:block;margin:0 auto}
 .main-nav{display:flex;gap:26px}
 .main-nav a{font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:15px;color:#cfe6d8;text-decoration:none;padding:6px 0}
 .main-nav a:hover,.main-nav a.active{color:var(--verde-luz)}
@@ -30,7 +34,7 @@ a{color:inherit}
 .mobile-nav{position:fixed;top:0;right:0;height:100vh;height:100dvh;width:min(80vw,320px);display:flex;flex-direction:column;background:var(--verde-osc);border-left:1px solid var(--borde);padding:90px 24px 24px;transform:translateX(100%);transition:transform .3s ease;z-index:200;overflow-y:auto;box-shadow:-8px 0 24px rgba(0,0,0,.35)}
 .mobile-nav a{padding:14px 0;font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:15px;color:#cfe6d8;border-bottom:1px solid var(--borde);text-decoration:none}
 .mobile-nav a.active{color:var(--verde-luz)}
-.mobile-nav .nav-cta{display:inline-block;order:-1;margin-bottom:14px;text-align:center;border-bottom:none;background:var(--oro);color:var(--negro)}
+.mobile-nav .nav-cta{display:block;width:100%;order:-1;margin-bottom:14px;padding:14px 26px;text-align:center;border-bottom:none;background:var(--oro);color:var(--negro)}
 .mobile-nav .nav-cta:hover{background:var(--oro-brillo)}
 .topbar.open + .mobile-nav{transform:translateX(0)}
 @media(max-width:900px){
@@ -43,13 +47,14 @@ a{color:inherit}
 .hero{text-align:center;padding:60px 6vw 80px;position:relative}
 .hero::before{content:"";position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:min(900px,100vw);height:500px;
   background:radial-gradient(ellipse, rgba(201,162,76,.12) 0%, transparent 65%);pointer-events:none}
-.hero .kicker{display:inline-block;border:1px solid var(--oro);color:var(--oro-brillo);font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:13px;padding:7px 20px;border-radius:30px;margin-bottom:26px;background:rgba(201,162,76,.07)}
+.hero .kicker{display:inline-block;letter-spacing:3px;font-size:13px;padding:7px 20px;margin-bottom:26px}
 .hero h1{font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:800;text-transform:uppercase;font-size:clamp(46px,8vw,92px);line-height:1.1;letter-spacing:1px}
 .hero .sub{max-width:640px;margin:22px auto 0;font-size:19px;color:#bfe0cc}
 .hero .sub b{color:#fff}
 .hero .ctas{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn-oro{background:linear-gradient(120deg,var(--oro) 0%,var(--oro-brillo) 50%,var(--oro) 100%);background-size:200%;color:var(--negro);font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:19px;padding:16px 46px;border-radius:10px;text-decoration:none;box-shadow:0 8px 30px rgba(201,162,76,.35);transition:.3s;display:inline-block}
-.btn-oro:hover{background-position:100%;transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(120deg,var(--oro) 0%,var(--oro-brillo) 50%,var(--oro) 100%);background-size:200%;color:var(--negro);font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:800;text-transform:uppercase;border-radius:10px;text-decoration:none;box-shadow:0 8px 30px rgba(201,162,76,.35);transition:.3s}
+.btn-gold:hover{background-position:100%;transform:translateY(-2px)}
+.btn-oro{letter-spacing:1.5px;font-size:19px;padding:16px 46px;display:inline-block}
 .btn-ghost{border:1px solid var(--verde-luz);color:var(--verde-luz);font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:19px;padding:16px 36px;border-radius:10px;text-decoration:none;transition:.2s;display:inline-block}
 .btn-ghost:hover{background:rgba(47,174,102,.12)}
 .hero .req{margin-top:26px;font-size:14px;color:#7fae93}
